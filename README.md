@@ -21,3 +21,12 @@ user_data:
 {_id:"userId1", action_date:ISODate("2013-09-01T23:59:59.000Z"), action:"like", item:"postId1"}
 
 {_id:"userId1", action_date:ISODate("2013-09-01T23:59:59.000Z"), action:"favorite", item:"postId2"}
+
+DB BLOGPOST, collection useractions
+> db.useractions.insert({uid:"userId1", a_d:new ISODate(), a:"favorite", i:"postId1"})
+> db.useractions.insert({uid:"userId1", a_d:new ISODate(), a:"like", i:"postId1"})
+> db.useractions.insert({uid:"userId1", a_d:new ISODate(), a:"like", i:"postId2"})
+
+totals
+   - postId1, 1 like, 1 favorites
+   - postId2, 1 like, 0 favorites
